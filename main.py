@@ -1,16 +1,34 @@
-from math import *
-class ListTooShortException(Exception):
-  pass
+from math import pi
+lst = []
+figura = []
+ilosc_figur = int(float(input().strip()))
+for i in range(ilosc_figur):
+    lst.append(input().split())
 
-def policz(lista, dzialanie):
-  if len(lista) < 3:
-    raise ListTooShortException("„Błąd: można podać maksymalnie 3 liczby")
-  for i in lista = 1:
-    wynik = 3,14*x*x
-  return wynik
-   for i in lista = 2:
-    wynik = (lista, lambda x, y: x * y)
-  return wynik
-   for i in lista = 3:
-    wynik = (lista,sqrt((a+b+c)/2*((a+b+c)/2-a)((a+b+c)/2-b)((a+b+c)/2-c) )
-  return wynik
+def obliczanie_kola(a):
+        return pi * a * a
+def obliczanie_prostokata(a,b):
+        return a * b
+def obliczanie_trojkata(a,b,c):
+        return (s*(s-a)*(s-b)*(s-c)) ** 0.5
+
+pole = 0
+
+for figura in lst:
+    if len(figura) == 1:
+        a = float(figura[0])
+        pole += obliczanie_kola(a)
+    elif len(figura) == 2:
+        a = float(figura[0])
+        b = float(figura[1])
+        pole += obliczanie_prostokata(a,b)
+    elif len(figura) == 3:
+        a = float(figura[0])
+        b = float(figura[1])
+        c = float(figura[2])
+        s = ((a + b + c)/2)
+        pole += obliczanie_trojkata(a,b,c)
+    else:
+        print("Błąd: można podać maksymalnie 3 liczby")
+        break
+print(round(pole,2))
